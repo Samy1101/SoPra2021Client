@@ -5,6 +5,7 @@ import AppRouter from "./components/shared/routers/AppRouter";
 /**
  * Happy coding!
  * React Template by Lucas Pelloni
+ * deploy comment
  */
 class App extends Component {
   render() {
