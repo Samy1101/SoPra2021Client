@@ -75,8 +75,8 @@ class Login extends React.Component {
   constructor() {
     super();
     this.state = {
-      name: null,
-      username: null
+      username: null,
+      password: null
     };
   }
   /**
@@ -88,15 +88,18 @@ class Login extends React.Component {
     try {
       const requestBody = JSON.stringify({
         username: this.state.username,
-        name: this.state.name
+        password: this.state.password
       });
-      const response = await api.post('/users', requestBody);
+      const response = await api.post('/users/login', requestBody);
 
       // Get the returned user and update a new object.
       const user = new User(response.data);
 
       // Store the token into the local storage.
       localStorage.setItem('token', user.token);
+
+      // Store the username into the local storage
+      localStorage.setItem('username', user.username);
 
       // Login successfully worked --> navigate to the route /game in the GameRouter
       this.props.history.push(`/game`);
@@ -137,16 +140,16 @@ class Login extends React.Component {
                 this.handleInputChange('username', e.target.value);
               }}
             />
-            <Label>Name</Label>
+            <Label>Password</Label>
             <InputField
               placeholder="Enter here.."
               onChange={e => {
-                this.handleInputChange('name', e.target.value);
+                this.handleInputChange('password', e.target.value);
               }}
             />
             <ButtonContainer>
               <Button
-                disabled={!this.state.username || !this.state.name}
+                disabled={!this.state.username || !this.state.password}
                 width="50%"
                 onClick={() => {
                   this.login();
@@ -155,6 +158,18 @@ class Login extends React.Component {
                 Login
               </Button>
             </ButtonContainer>
+
+            <ButtonContainer>
+              <Button
+                  width="50%"
+                  onClick={event => {
+                    this.props.history.push('/register');
+                  }}
+              >
+                Register
+              </Button>
+            </ButtonContainer>
+
           </Form>
         </FormContainer>
       </BaseContainer>

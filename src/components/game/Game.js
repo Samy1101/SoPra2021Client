@@ -32,9 +32,19 @@ class Game extends React.Component {
     };
   }
 
-  logout() {
-    localStorage.removeItem('token');
-    this.props.history.push('/login');
+ async logout() {
+      try {
+          const requestBody = JSON.stringify({
+              username: localStorage.getItem('username'),
+          });
+
+          const response = await api.post('/users/logout', requestBody);
+          localStorage.removeItem('token');
+          localStorage.removeItem('username')
+          this.props.history.push('/login');
+      } catch(error){
+          alert(`Something went wrong during the logout: \n${handleError(error)}`);
+      }
   }
 
   async componentDidMount() {
