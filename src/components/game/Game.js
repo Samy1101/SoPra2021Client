@@ -25,8 +25,8 @@ const PlayerContainer = styled.li`
 `;
 
 class Game extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       users: null
     };
@@ -35,12 +35,14 @@ class Game extends React.Component {
  async logout() {
       try {
           const requestBody = JSON.stringify({
-              username: localStorage.getItem('username'),
+              token: localStorage.getItem('token'),
           });
 
           const response = await api.post('/users/logout', requestBody);
+
           localStorage.removeItem('token');
           localStorage.removeItem('username')
+
           this.props.history.push('/login');
       } catch(error){
           alert(`Something went wrong during the logout: \n${handleError(error)}`);
