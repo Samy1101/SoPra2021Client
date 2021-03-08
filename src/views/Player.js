@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import {Link, withRouter} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   margin: 6px 0;
@@ -36,12 +38,13 @@ const Id = styled.div`
  * @FunctionalComponent
  */
 const Player = ({ user }) => {
-  return (
+
+    return (
     <Container>
-      <Name>{user.name}</Name> <UserName>{user.username}</UserName>
-      <Id>Id: {user.id}</Id>
+            <Name>{user.name}</Name> <UserName>{user.username}</UserName>
+            <Id>Id: {user.id}</Id>
     </Container>
   );
 };
 
-export default Player;
+export default withRouter(Player);

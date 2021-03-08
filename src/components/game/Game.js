@@ -74,6 +74,12 @@ class Game extends React.Component {
     }
   }
 
+    routeToProfile(key) {
+        localStorage.setItem('idToFetch', key);
+
+        this.props.history.push('/profile')
+    }
+
   render() {
     return (
       <Container>
@@ -86,7 +92,10 @@ class Game extends React.Component {
             <Users>
               {this.state.users.map(user => {
                 return (
-                  <PlayerContainer key={user.id}>
+                  <PlayerContainer key={user.id}
+                  onClick={() => {
+                      this.routeToProfile(user.id);
+                  }}>
                     <Player user={user} />
                   </PlayerContainer>
                 );
@@ -105,6 +114,7 @@ class Game extends React.Component {
       </Container>
     );
   }
+
 }
 
 export default withRouter(Game);
