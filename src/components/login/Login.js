@@ -163,7 +163,7 @@ class Login extends React.Component {
             <ButtonContainer>
               <Button
                   width="50%"
-                  onClick={event => {
+                  onClick={() => {
                     this.props.history.push('/register');
                   }}
               >

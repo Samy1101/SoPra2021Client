@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import {Link, withRouter} from "react-router-dom";
-import { useHistory } from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 const Container = styled.div`
   margin: 6px 0;
