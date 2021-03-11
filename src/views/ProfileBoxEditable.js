@@ -4,7 +4,8 @@ import {withRouter} from "react-router-dom";
 import {Button} from "./design/Button";
 
 const Container = styled.div`
-  display: list-item;
+  display: flex;
+  justify-content: space-between;
   margin: 6px 0;
   width: auto;
   padding: 10px;
@@ -19,13 +20,20 @@ const Attribute = styled.div`
   color: #06c4ff;
 `;
 
-const ProfileBox = ({attribute}) => {
+
+const ProfileBoxEditable = ({attribute}) => {
     return (
         <Container>
             <Attribute>{attribute}</Attribute>
+            <Button
+                width="50%"
+                onClick={() => { return true;
+                }}
+            >
+                Edit
+            </Button>
         </Container>
-);
-
+    );
 };
 
-export default withRouter(ProfileBox);
+export default withRouter(ProfileBoxEditable);

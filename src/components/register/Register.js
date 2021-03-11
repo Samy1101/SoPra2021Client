@@ -100,7 +100,7 @@ class Register extends React.Component {
 
             // Store the token into the local storage.
             localStorage.setItem('token', user.token);
-
+            localStorage.setItem('userId', user.id);
             // Store the username into the local storage
             localStorage.setItem('username', user.username);
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Redirect } from "react-router-dom";
+import {Redirect} from "react-router-dom";
 
 /**
  *
@@ -9,5 +9,5 @@ export const ProfileGuard = props => {
     if (localStorage.getItem("token")) {
         return props.children;
     }
-    return <Redirect to={"/login"} />;
+    return <Redirect to={"/login"}/>;
 };

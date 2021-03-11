@@ -7,6 +7,7 @@
     "install": "^0.13.0",
     "npm": "^7.6.1",
     "react": "^17.0.1",
+    "react-date-picker": "^8.1.0",
     "react-dom": "^17.0.1",
     "react-nice-input-password": "^2.7.0",
     "react-router-dom": "^5.2.0",
