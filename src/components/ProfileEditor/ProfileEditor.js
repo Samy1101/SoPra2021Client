@@ -38,7 +38,7 @@ const EditableContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 6px 0;
-  width: auto;
+  width: 30em;
   padding: 10px;
   border-radius: 6px;
   display: flex;
@@ -61,7 +61,9 @@ const PlayerContainer = styled(BaseContainer)`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin: auto;
+  margin-top: 2em;
+  width: 36em;
 `;
 
 
@@ -71,9 +73,12 @@ class ProfileEditor extends React.Component {
         super(props);
         this.state = {
             user: null,
+            date: new Date(),
+            birthday: null,
             editUsername: null,
             editBirthday: null,
-        }
+        };
+        this.handleChange = this.handleChange.bind(this);
     }
 
     async componentDidMount() {
@@ -109,6 +114,17 @@ class ProfileEditor extends React.Component {
         }
     }
 
+    handleChange(date) {
+        if (date != null) {
+            this.setState(prevState => {
+                let user = Object.assign({}, prevState.user);
+                user.birthday = ("0" + date.getDate()).slice(-2) + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" +
+                    date.getFullYear()
+                return {user}
+            })
+        }
+        this.setState({"date": date})
+    }
 
     render() {
         return (
@@ -172,15 +188,9 @@ class ProfileEditor extends React.Component {
                             </EditableContainer>
                         ) : (
                             <EditableContainer>
-                                <InputField
-                                    placeholder="Enter new birthday here"
-                                    onChange={e => {
-                                        this.setState(prevState => {
-                                            let user = Object.assign({}, prevState.user);
-                                            user.birthday = e.target.value;
-                                            return {user}
-                                        })
-                                    }}
+                                <DatePicker
+                                    value = {this.state.date}
+                                    onChange={this.handleChange}
                                 />
                                 <Button
                                     width="50%"
