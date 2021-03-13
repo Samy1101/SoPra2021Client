@@ -29,7 +29,9 @@ const PlayerContainer = styled(BaseContainer)`
 const ButtonContainer = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  margin: auto;
+  margin-top: 2em;
+  width: 36em;
 `;
 
 
