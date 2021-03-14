@@ -93,8 +93,13 @@ class Register extends React.Component {
                 username: this.state.username,
                 password: this.state.password
             });
-            const response = await api.post('/users', requestBody);
+            const location = await api.post('/users', requestBody);
 
+            localStorage.setItem('location', location.data.location)
+
+            const response = await api.get(location.data.location);
+
+            console.log(response)
             // Get the returned user and update a new object.
             const user = new User(response.data);
 

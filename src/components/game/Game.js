@@ -112,7 +112,7 @@ class Game extends React.Component {
                 )}
                 <ButtonContainer>
                     <Button
-                        width= "auto"
+                        width="auto"
                         onClick={() => {
                             this.logout();
                         }}

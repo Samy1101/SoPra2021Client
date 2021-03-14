@@ -189,7 +189,7 @@ class ProfileEditor extends React.Component {
                         ) : (
                             <EditableContainer>
                                 <DatePicker
-                                    value = {this.state.date}
+                                    value={this.state.date}
                                     onChange={this.handleChange}
                                 />
                                 <Button
