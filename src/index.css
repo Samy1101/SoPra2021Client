@@ -3,6 +3,26 @@
 /**
 This file contains the general and shared style of your application.
  */
+#tsparticlesContainer{
+  position: relative;
+  z-index: -10;
+}
+
+/*#tsparticles{
+  position: relative;
+  z-index: 10;
+} */
+/*
+#header{
+  position: relative;
+  z-index: 10;
+}
+
+#main{
+  position: relative;
+  z-index: 10;
+}
+*/
 body {
   margin: 0;
   padding: 0;

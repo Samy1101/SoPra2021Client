@@ -26,7 +26,7 @@ const PlayerContainer = styled.li`
 
 const ButtonContainer = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   margin-top: 20px;
 `;
 

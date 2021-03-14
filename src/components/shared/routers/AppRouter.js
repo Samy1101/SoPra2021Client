@@ -8,6 +8,8 @@ import Register from "../../register/Register";
 import {ProfileGuard} from "../routeProtectors/ProfileGuard";
 import Profile from "../../Profile/Profile";
 import ProfileEditor from "../../ProfileEditor/ProfileEditor";
+import Particles from "react-tsparticles";
+import ParticleBackground from "../../../views/design/ParticleBackground";
 
 /**
  * Main router of your application.
@@ -21,7 +23,9 @@ import ProfileEditor from "../../ProfileEditor/ProfileEditor";
 class AppRouter extends React.Component {
     render() {
         return (
-            <BrowserRouter>
+            <BrowserRouter  style={{
+                position: 'relative', zIndex: '10'
+            }}>
                 <Switch>
                     <div>
                         <Route
@@ -68,7 +72,9 @@ class AppRouter extends React.Component {
                         />
 
                         <Route path="/" exact render={() => <Redirect to={"/game"}/>}/>
+
                     </div>
+
                 </Switch>
             </BrowserRouter>
         );

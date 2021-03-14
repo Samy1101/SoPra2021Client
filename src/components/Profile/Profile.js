@@ -46,7 +46,7 @@ class Profile extends React.Component{
 
    async componentDidMount() {
         try {
-            const response = await api.get('/users/' + localStorage.getItem('idToFetch'));
+            const response = await api.get('/users/' + localStorage.getItem('idToFetch') + "/" + localStorage.getItem("token"));
 
             // fake loading time
             await new Promise(resolve => setTimeout(resolve, 1000));

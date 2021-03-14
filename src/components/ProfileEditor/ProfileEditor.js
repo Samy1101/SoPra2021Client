@@ -83,7 +83,8 @@ class ProfileEditor extends React.Component {
 
     async componentDidMount() {
         try {
-            const response = await api.get('/users/' + localStorage.getItem('userId'));
+
+            const response = await api.get('/users/' + localStorage.getItem('userId') + "/" + localStorage.getItem("token"));
 
             // fake loading time
             await new Promise(resolve => setTimeout(resolve, 1000));
