@@ -162,6 +162,7 @@ class ProfileEditor extends React.Component {
                                 />
                                 <Button
                                     width="50%"
+                                    disabled={!this.state.user.username}
                                     onClick={() => {
                                         this.updateUser();
                                         this.setState({"editUsername": false});
